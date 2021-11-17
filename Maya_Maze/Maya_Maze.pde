@@ -1,5 +1,20 @@
-int a = 1;
-int b = 2;
 
-println(a+b+1);
-println("Hello World!");
+
+void setup()
+{
+  fullScreen();
+}
+
+void draw()
+{
+  Quit();
+}
+
+void Quit()
+{
+  if (key == ESC)
+  {
+    exit();
+  }
+  
+}
