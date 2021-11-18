@@ -27,7 +27,7 @@ void draw()
   
   fill(128);
   rect(320,960,1280,120);
-  CheckIfQuit();
+  QuitOnEscPress();
 }
 
 void LoadImages()
@@ -38,7 +38,7 @@ void LoadImages()
   finalRoom = loadImage("leftroomcloseuproots.png");
 }
 
-void CheckIfQuit()
+void QuitOnEscPress()
 {
   if (key == ESC)
   {
