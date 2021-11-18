@@ -43,15 +43,16 @@ void mouseClicked()
   }
   else if (currentScene == 1 
     && mouseX >= 825 
-      && mouseX <= 1025 
-        && mouseY >= 375 
-          && mouseY <= 800)
+    && mouseX <= 1025 
+    && mouseY >= 375 
+    && mouseY <= 800
+    && doorUnlocked == true)
   {
     currentScene = 4;
   }
   else if (currentScene == 4 
     && mouseY >= 800 
-      && mouseY <= 960)
+    && mouseY <= 960)
   {
     currentScene = 1;
   }
