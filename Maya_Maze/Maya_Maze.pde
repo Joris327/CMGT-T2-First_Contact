@@ -1,5 +1,7 @@
 PImage mainRoom; 
 
+
+
 void setup()
 {
   fullScreen();
@@ -23,5 +25,4 @@ void Quit()
   {
     exit();
   }
-  
 }
