@@ -1,4 +1,4 @@
-class Scene 
+class Main_Scene 
 {
   void setup()
   {
@@ -7,6 +7,6 @@ class Scene
   
   void update()
   {
-    
+    image(mainRoom,320,0);
   }
 }

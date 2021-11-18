@@ -1,25 +1,44 @@
 PImage mainRoom; 
+PImage rightRoom;
+PImage leftRoom;
+PImage finalRoom;
 
+int currentScene = 1;
 
+Main_Scene mainScene = new Main_Scene();
+Right_Scene rightScene = new Right_Scene();
+Left_Scene leftScene = new Left_Scene();
+Final_Scene finalScene = new Final_Scene();
 
 void setup()
 {
-  fullScreen();
-  //size(1000,1000);
-  mainRoom = loadImage("Main_Hall_Background_B.png");
+  fullScreen(); 
+  //1080p screens only!!! higher resolusion will work but is wonky.
+  //lower resolution will make game unplayable.
+  
+  LoadImages();
 }
 
 void draw()
 {
   background(0);
-  scale(1,1);
-  image(mainRoom,320,0);
+  
+  SceneManager();
+  
   fill(128);
   rect(320,960,1280,120);
-  Quit();
+  CheckIfQuit();
 }
 
-void Quit()
+void LoadImages()
+{
+  mainRoom = loadImage("Main_Hall_Background_B.png");
+  rightRoom = loadImage("Right_Room_Scetch.jpg");
+  leftRoom = loadImage("Left_Room_Placeholder.jpg");
+  finalRoom = loadImage("leftroomcloseuproots.png");
+}
+
+void CheckIfQuit()
 {
   if (key == ESC)
   {
