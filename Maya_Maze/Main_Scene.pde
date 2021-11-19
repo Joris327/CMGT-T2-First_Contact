@@ -7,7 +7,7 @@ class Main_Scene
   
   void update()
   {
-    if (returnedEye == false || returnedGem == false)
+    if (returnedEye == false || returnedGem == false) //displaying the returned items and ckecking whether the door is unlocked.
     {
       image(mainRoom,320,0);
       

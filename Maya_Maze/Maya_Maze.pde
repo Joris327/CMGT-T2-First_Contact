@@ -8,8 +8,12 @@ PImage doorOpens;
 
 int currentScene = 1;
 
+boolean foundEye = false;
 boolean returnedEye = false;
+
+boolean foundGem = false;
 boolean returnedGem = false;
+
 boolean doorUnlocked = false;
 
 Main_Scene mainScene = new Main_Scene();

@@ -2,7 +2,7 @@
 
 void SceneManager()
 {
-  switch(currentScene)
+  switch(currentScene) // tells the program which scene to show.
   {
     case 1: 
       mainScene.update();
@@ -23,9 +23,9 @@ void SceneManager()
   }
 }
 
-void mouseClicked()
+void mouseClicked() 
 {
-  if (currentScene == 1 && mouseX >= 1500)
+  if (currentScene == 1 && mouseX >= 1500)// logic for going to diffrent scenes
   {
     currentScene = 2;
   }
@@ -55,5 +55,25 @@ void mouseClicked()
     && mouseY <= 960)
   {
     currentScene = 1;
+  }
+  
+  if (currentScene == 3 //clicking the eye
+    && mouseX >= 1175
+    && mouseX <= 1275
+    && mouseY >= 275
+    && mouseY <= 375)
+    {
+      foundEye = true;
+      returnedEye = true;
+    }
+    
+  if (currentScene == 2 //clicking the gem
+    && mouseX >= 1150
+    && mouseX <= 1250
+    && mouseY >= 450
+    && mouseY <= 550)
+  {
+    foundGem = true;
+    returnedGem = true;
   }
 }
