@@ -6,7 +6,7 @@ PImage statueEye;
 PImage statueGem;
 PImage doorOpens;
 
-int currentScene = 1;
+String currentScene = "main_Scene";
 
 boolean foundEye = false;
 boolean returnedEye = false;
@@ -34,33 +34,12 @@ void draw()
 {
   background(0);
 
-  SceneManager(); //handles scene navigation.
+  SceneManager();
   
   fill(128);
   rect(320, 960, 1280, 120); //inventory bar
   
   QuitOnEscPress();
-}
-
-void keyReleased()
-{
-  if (key == 'r' && returnedEye == false)
-  {
-    returnedEye = true;
-  } 
-  else if (key == 'r' &&returnedEye == true)
-  {
-    returnedEye = false;
-  }
-  
-  if (key == 't' && returnedGem == false)
-  {
-    returnedGem = true;
-  } 
-  else if (key == 't' && returnedGem == true)
-  {
-    returnedGem = false;
-  }
 }
 
 void LoadImages()
@@ -79,5 +58,26 @@ void QuitOnEscPress()
   if (key == ESC)
   {
     exit();
+  }
+}
+
+void keyReleased()
+{
+  if (key == 'r' && returnedEye == false)
+  {
+    returnedEye = true;
+  } 
+  else if (key == 'r')
+  {
+    returnedEye = false;
+  }
+  
+  if (key == 't' && returnedGem == false)
+  {
+    returnedGem = true;
+  } 
+  else if (key == 't')
+  {
+    returnedGem = false;
   }
 }
