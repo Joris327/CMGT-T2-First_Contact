@@ -5,8 +5,13 @@ PImage finalRoom;
 PImage statueEye;
 PImage statueGem;
 PImage doorOpens;
+PImage doorOpensAnim;
 
 String currentScene = "main_Scene";
+
+
+int itemX = -500;
+int itemY = 700;
 
 boolean foundEye = false;
 boolean returnedEye = false;
@@ -20,6 +25,13 @@ Main_Scene mainScene = new Main_Scene();
 Right_Scene rightScene = new Right_Scene();
 Left_Scene leftScene = new Left_Scene();
 Final_Scene finalScene = new Final_Scene();
+//Enums scenes = new Enums();
+//Item item = new Item();
+//Door_Opens_Anim DoorOpensAnim = new Door_Opens_Anim(doorOpensAnim, 11, 1);
+
+//Scenes currentScene = Scenes.main_Scene;
+
+ArrayList<Item> Inventory = new ArrayList();
 
 void setup()
 {
@@ -36,10 +48,34 @@ void draw()
 
   SceneManager();
   
+  DrawInventory();
+  
+  QuitOnEscPress();
+  
+  //if (doorUnlocked = true)
+  //{
+  //  DoorOpensAnim.next();
+  //  DoorOpensAnim.draw(320, 0);
+  //}
+      
+}
+
+void DrawInventory()
+{
   fill(128);
   rect(320, 960, 1280, 120); //inventory bar
   
-  QuitOnEscPress();
+  //for (int i = 0; i < Inventory.size(); ++i)
+  //{
+  //  Item.draw();
+  //  itemY = 500 + (i * 100);
+  //}
+  
+  //for (Item item : Inventory)
+  //{
+  //  item.draw();
+  //  itemX = -500 + (getIndex(item) * 100);
+  //}
 }
 
 void LoadImages()
@@ -51,6 +87,7 @@ void LoadImages()
   statueEye = loadImage("Statue_Eye.png");
   statueGem = loadImage("Statue_Gem.png");
   doorOpens = loadImage("door_opens.gif");
+  doorOpensAnim = loadImage("Door_Opens_Anim.png");
 }
 
 void QuitOnEscPress()
