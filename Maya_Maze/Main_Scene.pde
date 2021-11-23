@@ -26,22 +26,42 @@ class Main_Scene
       image(doorOpens,320,0);
       doorUnlocked = true;
     }
-    
-    /*
-    if (returnedEye == true)
+    //rect(1160,375,75,75);
+  }
+  
+  void mouseClicked()
+  {
+    if (foundEye == true && returnedEye == false
+      && mouseX > 1175
+      && mouseX < 1250
+      && mouseY > 275
+      && mouseY < 350)
     {
-      image(statueEye,320,0);
+      returnedEye = true;
+      println(itemSelected);
+      
+      for (Item item : Inventory)
+      {
+        if (item.itemName().equals("Eye"))
+        {
+          if (Inventory.get(itemSelected) == item)
+          {
+            Inventory.remove(itemSelected);
+          }
+        }
+      }
+      itemSelected = -1;
     }
     
-    if (returnedGem == true)
+    if (foundGem == true && returnedGem == false
+      && mouseX > 1160
+      && mouseX < 1235
+      && mouseY > 375
+      && mouseY < 450)
     {
-      image(statueGem,320,0);
+      returnedGem = true;
+      //Inventory.remove(itemSelected);
     }
-    
-    if (returnedEye == true && returnedGem == true)
-    {
-      image(doorOpens,320,0);
-    }
-    */
+      
   }
 }

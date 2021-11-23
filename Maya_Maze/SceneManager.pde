@@ -25,14 +25,16 @@ void SceneManager()
 
 void mouseClicked() 
 {
+  
+  
   switch(currentScene) // handles scene navigation
   {
     case "main_Scene":
-      if (mouseX > 1500)
+      if (mouseX > 1500 && mouseY < 960)
       {
         currentScene = "right_Scene";
       }
-      if (mouseX < 420)
+      if (mouseX < 420 && mouseY < 960)
       {
         currentScene = "left_Scene";
       }
@@ -44,17 +46,18 @@ void mouseClicked()
       {
         currentScene = "final_Scene";   
       }
+      mainScene.mouseClicked();
     break;
       
     case "right_Scene":
-      if (mouseX < 420)
+      if (mouseX < 420 && mouseY < 960)
       {
         currentScene = "main_Scene";
       }
     break;
       
     case "left_Scene":
-      if (mouseX > 1500)
+      if (mouseX > 1500 && mouseY < 960)
       {
         currentScene = "main_Scene";
       }
@@ -79,11 +82,11 @@ void mouseClicked()
       if (mouseX > 1175 // eye clicked
         && mouseX < 1275
         && mouseY > 275
-        && mouseY < 375)
+        && mouseY < 375
+        && foundEye == false)
       {
         foundEye = true;
-        Inventory.add(new Item(statueEye, itemX, itemY));
-        returnedEye = true;
+        Inventory.add(new Item(eyeIcon, itemX, itemY, "Eye"));
       }
     break;
     
@@ -91,11 +94,14 @@ void mouseClicked()
       if (mouseX >= 1150 //gem clicked
         && mouseX <= 1250
         && mouseY >= 450
-        && mouseY <= 550)
+        && mouseY <= 550
+        && foundGem == false)
       {
         foundGem = true;
-        returnedGem = true;
+        Inventory.add(new Item(gemIcon, itemX, itemY, "Gem"));
       }
     break;
   }
+  
+  
 }
