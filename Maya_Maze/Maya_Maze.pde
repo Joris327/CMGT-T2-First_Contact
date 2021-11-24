@@ -75,19 +75,6 @@ void DrawInventory()
     
     if (item != null)
     {
-      if (mouseX < itemX+75
-      && mouseX > itemX-75
-      && mouseY < itemY+25
-      && mouseY > itemY-50)
-      {
-        itemSelected = i;
-      }
-      
-      if (itemSelected == i && itemSelected != -1) //handle item selection
-      {
-        fill(#FAD7AC);
-        rect(itemX-75,itemY-50,150,75);
-      }
       item.itemX = itemX;
       item.draw();
       itemX += 200;

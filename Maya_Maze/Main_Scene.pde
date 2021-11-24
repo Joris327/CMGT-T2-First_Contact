@@ -31,6 +31,8 @@ class Main_Scene
   
   void mouseClicked()
   {
+    int deleteItem = -1;
+    
     if (foundEye == true && returnedEye == false
       && mouseX > 1175
       && mouseX < 1250
@@ -39,13 +41,15 @@ class Main_Scene
     {
       Item eyeItem = null;
       
+      
       for (int i = 0; i < Inventory.size(); ++i)
       {
         Item item = Inventory.get(i);
-        if (item.itemName().equals("Eye") && item == Inventory.get(itemSelected))
+        if (item.itemName().equals("Eye") && item.itemSelected == true)
         {
           returnedEye = true;
           eyeItem = item;
+          deleteItem = i;
         }
       }
       
@@ -53,8 +57,8 @@ class Main_Scene
       {
         if (returnedEye == true && eyeItem.itemName().equals("Eye"))
         {
-          Inventory.remove(itemSelected);
-          itemSelected = -1;
+          Inventory.remove(deleteItem);
+          deleteItem = -1;
         }
       }
     }
@@ -70,10 +74,11 @@ class Main_Scene
       for (int i = 0; i < Inventory.size(); ++i)
       {
         Item item = Inventory.get(i);
-        if (item.itemName().equals("Gem") && item == Inventory.get(itemSelected));
+        if (item.itemName().equals("Gem") && item.itemSelected == true)
         {
           returnedGem = true;
           gemItem = item;
+          deleteItem = i;
         }
       }
       
@@ -81,8 +86,8 @@ class Main_Scene
       {
         if (returnedGem == true && gemItem.itemName().equals("Gem"))
         {
-          Inventory.remove(itemSelected);
-          itemSelected = -1;
+          Inventory.remove(deleteItem);
+          deleteItem = -1;
         }
       }
     }

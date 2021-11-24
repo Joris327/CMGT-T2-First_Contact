@@ -25,8 +25,6 @@ void SceneManager()
 
 void mouseClicked() 
 {
-  
-  
   switch(currentScene) // handles scene navigation
   {
     case "main_Scene":
@@ -103,5 +101,8 @@ void mouseClicked()
     break;
   }
   
-  
+  for (Item item : Inventory)
+  {
+    item.mouseClicked();
+  }
 }

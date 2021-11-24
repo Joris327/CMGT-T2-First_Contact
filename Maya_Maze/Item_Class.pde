@@ -5,6 +5,8 @@ class Item
   PImage itemImage;
   String itemName;
   
+  boolean itemSelected = false;
+  
   Item (PImage pImage, int pItemX, int pItemY, String pItemName)
   {
     itemImage = pImage;
@@ -15,7 +17,28 @@ class Item
   
   void draw()
   {
+    if (itemSelected == true)
+    {
+      fill(#FAD7AC);
+      rect(itemX-75,itemY-50,150,75);
+    }
+    
     image(itemImage,itemX,itemY, 150, 150);
+  }
+  
+  void mouseClicked()
+  {
+    if (mouseX < itemX+75
+      && mouseX > itemX-75
+      && mouseY < itemY+25
+      && mouseY > itemY-50)
+      {
+        itemSelected = true;
+      }
+      else
+      {
+        itemSelected = false;
+      }
   }
   
   String itemName()
