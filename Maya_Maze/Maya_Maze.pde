@@ -73,7 +73,9 @@ void DrawInventory()
   {
     Item item = Inventory.get(i);
     
-    if (mouseX < itemX+75
+    if (item != null)
+    {
+      if (mouseX < itemX+75
       && mouseX > itemX-75
       && mouseY < itemY+25
       && mouseY > itemY-50)
@@ -81,21 +83,20 @@ void DrawInventory()
         itemSelected = i;
       }
       
-      if (itemSelected == i && itemSelected != -1) 
+      if (itemSelected == i && itemSelected != -1) //handle item selection
       {
         fill(#FAD7AC);
         rect(itemX-75,itemY-50,150,75);
       }
-      
+      item.itemX = itemX;
       item.draw();
       itemX += 200;
+    }
+    else
+    {
+      itemX -= 200;
+    }
   }
-  
-  //for (Item item : Inventory)
-  //{
-  //  item.draw();
-  //  itemX = -500 + (getIndex(item) * 100);
-  //}
 }
 
 Item itemName (String name)
@@ -112,15 +113,15 @@ Item itemName (String name)
 
 void LoadImages()
 {
-  mainRoom = loadImage("Main_Hall.png");
-  rightRoom = loadImage("Right_Room_Scetch.jpg");
-  leftRoom = loadImage("Left_Room_Placeholder.jpg");
-  finalRoom = loadImage("leftroomcloseuproots.png");
+  mainRoom = loadImage("Main_Room.png");
+  rightRoom = loadImage("Right_Room.png");
+  leftRoom = loadImage("Left_Room.jpg");
+  finalRoom = loadImage("Final_Room.png");
   statueEye = loadImage("Statue_Eye.png");
   statueGem = loadImage("Statue_Gem.png");
   eyeIcon = loadImage("eye300x300.png");
   gemIcon = loadImage("eye30x30.png");
-  doorOpens = loadImage("door_opens.gif");
+  doorOpens = loadImage("Door_Open.gif");
   //doorOpensAnim = loadImage("Door_Opens_Anim.png");
 }
 
@@ -132,7 +133,7 @@ void QuitOnEscPress()
   }
 }
 
-void keyReleased() // cheat to get to the final room quickly
+void keyReleased() // cheat to get to the final room quickly by pressing r and t
 {
   if (key == 'r' && returnedEye == false)
   {
