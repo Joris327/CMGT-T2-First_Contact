@@ -20,22 +20,10 @@ class Item
     if (itemSelected == true)
     {
       fill(#FAD7AC);
-      rect(itemX-75,itemY-50,150,90);
+      rect(itemX-75,itemY-50,150,75);
     }
     
-    image(itemImage,itemX,itemY, 100, 100);
-    
-    //if (mouseX < itemX+75
-    //  && mouseX > itemX-75
-    //  && mouseY < itemY+25
-    //  && mouseY > itemY-50)
-    //  {
-    //    cursor(mouseHalo);
-    //  }
-    //  else
-    //  {
-    //    cursor(ARROW);
-    //  }
+    image(itemImage,itemX,itemY, 150, 150);
   }
   
   void mouseClicked()

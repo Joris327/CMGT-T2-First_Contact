@@ -1,29 +1,24 @@
+/*void mouseClicked(){
+ if(knifeSelected == true){
+ >>switch scene to puzzle?
+ }
+ }*/
+
 class Left_Scene
 {
   void update()
   {
-    image(leftRoom,320,0);
-    
+    image(leftRoom, 320, 0);
+
     if (foundEye == false)
     {
       //rect(1175,275,100,100);
-      //image(eyeIconSmall,1000,900);
-      Eye.update();
+      image(statueEye, 320, 0);
     }
-    
-    // change mouse when hovering over something clickable
-    push();
-    imageMode(CENTER);
-    if (mouseX > 1500 && mouseX < 1600 && mouseY < 960 && mouseY > 400) //right door
-    {
-      cursor(mouseHalo);
-    }
-    else
-    {
-      cursor(ARROW);
-    }
-    pop();
+
+    //  if (leftPuzzleSolved == true)
+    //{
+    //  draw relic somewhere on the background
+    //}
   }
-  
-  
 }
