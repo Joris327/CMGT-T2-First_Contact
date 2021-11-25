@@ -4,7 +4,6 @@ PImage leftPuzzlePiece1;
 PImage leftPuzzlePiece2;
 PImage leftPuzzlePiece3;
 
-
 boolean leftSolved = false;
 boolean middleSolved = false;
 boolean rightSolved = false;
@@ -57,7 +56,6 @@ class Left_Puzzle
     }
 
     //change the image with each counter value increase
-    //leftPiece = new leftPuzzle();
     if (leftPiece.clickCntr == 0) {
       image(leftPuzzlePiece0, 480, 355);
     }
@@ -72,7 +70,6 @@ class Left_Puzzle
     }
 
 
-    //middlePiece = new leftPuzzle();
     if (middlePiece.clickCntr == 0) {
       image(leftPuzzlePiece0, 800, 355);
     }
@@ -86,7 +83,6 @@ class Left_Puzzle
       image(leftPuzzlePiece3, 800, 355);
     }
 
-    //rightPiece = new leftPuzzle();
     if (rightPiece.clickCntr == 0) {
       image(leftPuzzlePiece0, 1120, 355);
     }
