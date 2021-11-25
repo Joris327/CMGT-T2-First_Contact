@@ -122,6 +122,23 @@ void LoadImages()
   leftPuzzlePiece1 = loadImage("piece1.png");
   leftPuzzlePiece2 = loadImage("piece2.png");
   leftPuzzlePiece3 = loadImage("piece3.png");
+  rightPuzzlePiece00 = loadImage("arrow0.png");
+  rightPuzzlePiece01 = loadImage("arrow1.png");
+  rightPuzzlePiece02 = loadImage("arrow2.png");
+  rightPuzzlePiece03 = loadImage("arrow3.png");
+  rightPuzzlePiece04 = loadImage("arrow4.png");
+  rightPuzzlePiece05 = loadImage("arrow5.png");
+  rightPuzzlePiece06 = loadImage("arrow6.png");
+  rightPuzzlePiece07 = loadImage("arrow7.png");
+  rightPuzzlePiece08 = loadImage("arrow8.png");
+  rightPuzzlePiece09 = loadImage("arrow9.png");
+  rightPuzzlePiece10 = loadImage("arrow10.png");
+  rightPuzzlePiece11 = loadImage("arrow11.png");
+  rightPuzzlePiece12 = loadImage("arrow12.png");
+  rightPuzzlePiece13 = loadImage("arrow13.png");
+  rightPuzzlePiece14 = loadImage("arrow14.png");
+  rightPuzzlePiece15 = loadImage("arrow15.png");
+
   //doorOpensAnim = loadImage("Door_Opens_Anim.png");
 }
 
