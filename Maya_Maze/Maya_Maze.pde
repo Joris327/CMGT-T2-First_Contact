@@ -1,13 +1,15 @@
-PImage mainRoom; 
+PImage mainRoom;
 PImage rightRoom;
 PImage leftRoom;
 PImage finalRoom;
 PImage statueEye;
 PImage statueGem;
 PImage eyeIcon;
+PImage eyeIconSmall;
 PImage gemIcon;
 PImage doorOpens;
 //PImage doorOpensAnim;
+PImage mouseHalo;
 
 String currentScene = "main_Scene";
 
@@ -31,6 +33,9 @@ Left_Scene leftScene = new Left_Scene();
 Final_Scene finalScene = new Final_Scene();
 //Door_Opens_Anim DoorOpensAnim = new Door_Opens_Anim(doorOpensAnim, 11, 1);
 
+GameObject Eye;
+GameObject Gem;
+
 ArrayList<Item> Inventory = new ArrayList();
 
 void setup()
@@ -40,6 +45,8 @@ void setup()
   //lower resolution will make game unplayable.
 
   LoadImages();
+  Eye = new GameObject(eyeIcon, 1000, 900, "Eye", 30, 30);
+  Gem = new GameObject(gemIcon, 900, 400, "Gem", 43, 49);
 }
 
 void draw()
@@ -107,9 +114,11 @@ void LoadImages()
   statueEye = loadImage("Statue_Eye.png");
   statueGem = loadImage("Statue_Gem.png");
   eyeIcon = loadImage("eye300x300.png");
-  gemIcon = loadImage("eye30x30.png");
+  eyeIconSmall = loadImage("eye30x30.png");
+  gemIcon = loadImage("Gem_Placeholder.png");
   doorOpens = loadImage("Door_Open.gif");
   //doorOpensAnim = loadImage("Door_Opens_Anim.png");
+  mouseHalo = loadImage("halo.png");
 }
 
 void QuitOnEscPress()

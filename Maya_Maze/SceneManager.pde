@@ -28,19 +28,15 @@ void mouseClicked()
   switch(currentScene) // handles scene navigation
   {
     case "main_Scene":
-      if (mouseX > 1500 && mouseY < 960)
+      if (mouseX > 1500 && mouseX < 1600 && mouseY < 960 && mouseY > 400)
       {
         currentScene = "right_Scene";
       }
-      if (mouseX < 420 && mouseY < 960)
+      if (mouseX < 420 && mouseX > 320 && mouseY < 960 && mouseY > 400)
       {
         currentScene = "left_Scene";
       }
-      if (mouseX >= 825 
-        && mouseX <= 1025 
-        && mouseY >= 375 
-        && mouseY <= 800
-        && doorUnlocked == true)
+      if (mouseX > 825 && mouseX < 1025 && mouseY > 375 && mouseY < 725 && doorUnlocked == true)
       {
         currentScene = "final_Scene";   
       }
@@ -48,21 +44,21 @@ void mouseClicked()
     break;
       
     case "right_Scene":
-      if (mouseX < 420 && mouseY < 960)
+      if (mouseX < 420 && mouseX < 1320 && mouseY < 960 && mouseY > 400)
       {
         currentScene = "main_Scene";
       }
     break;
       
     case "left_Scene":
-      if (mouseX > 1500 && mouseY < 960)
+      if (mouseX > 1500 && mouseX < 1600 && mouseY < 960 && mouseY > 400)
       {
         currentScene = "main_Scene";
       }
     break;
       
     case "final_Scene":
-      if (mouseY > 800 && mouseY < 960)
+      if (mouseX > 320 && mouseX < 1600 && mouseY < 960 && mouseY > 900)
       {
         currentScene = "main_Scene";
       }
@@ -77,27 +73,36 @@ void mouseClicked()
   switch (currentScene) // handles item click detection
   {
     case "left_Scene":
-      if (mouseX > 1175 // eye clicked
-        && mouseX < 1275
-        && mouseY > 275
-        && mouseY < 375
-        && foundEye == false)
+      if (foundEye == false)
       {
-        foundEye = true;
-        Inventory.add(new Item(eyeIcon, itemX, itemY, "Eye"));
+        Eye.onObjectClick();
       }
+      
+      //if (mouseX > 1000 // eye clicked
+      //  && mouseX < 1020
+      //  && mouseY > 900
+      //  && mouseY < 920
+      //  && foundEye == false && Eye.itemClicked == true)
+      //{
+      //  foundEye = true;
+      //  Inventory.add(new Item(eyeIcon, itemX, itemY, "Eye"));
+      //}
     break;
     
     case "right_Scene":
-      if (mouseX >= 1150 //gem clicked
-        && mouseX <= 1250
-        && mouseY >= 450
-        && mouseY <= 550
-        && foundGem == false)
+      if (foundGem == false)
       {
-        foundGem = true;
-        Inventory.add(new Item(gemIcon, itemX, itemY, "Gem"));
+        Gem.onObjectClick();
       }
+      //if (mouseX >= 1150 //gem clicked
+      //  && mouseX <= 1250
+      //  && mouseY >= 450
+      //  && mouseY <= 550
+      //  && foundGem == false)
+      //{
+      //  foundGem = true;
+      //  Inventory.add(new Item(gemIcon, itemX, itemY, "Gem"));
+      //}
     break;
   }
   

@@ -1,13 +1,8 @@
 class Main_Scene 
 {
-  void setup()
-  {
-    
-  }
-  
   void update()
   {
-    if (returnedEye == false || returnedGem == false) //displaying the returned items and ckecking whether the door is unlocked.
+    if (returnedEye == false || returnedGem == false) //displaying the returned items and checking whether the door is unlocked.
     {
       image(mainRoom,320,0);
       
@@ -26,14 +21,34 @@ class Main_Scene
       image(doorOpens,320,0);
       doorUnlocked = true;
     }
-    //rect(1160,375,75,75);
+    
+    // change mouse when hovering over something clickable
+    push();
+    imageMode(CENTER);
+    if (mouseX > 1500 && mouseX < 1600 && mouseY < 960 && mouseY > 400) //right door
+    {
+      cursor(mouseHalo);
+    }
+    else if (mouseX < 420 && mouseX > 320 && mouseY < 960 && mouseY > 400) //left door
+    {
+      cursor(mouseHalo);
+    }
+    else if (mouseX > 850 && mouseX < 1025 && mouseY > 375 && mouseY < 725 && doorUnlocked == true)// central door
+    {
+      cursor(mouseHalo);
+    }
+    else
+    {
+      cursor(ARROW);
+    }
+    pop();
   }
   
   void mouseClicked()
   {
     int deleteItem = -1;
     
-    if (foundEye == true && returnedEye == false
+    if (foundEye == true && returnedEye == false // check if the correct item is seleced and use it
       && mouseX > 1175
       && mouseX < 1250
       && mouseY > 275
@@ -63,7 +78,7 @@ class Main_Scene
       }
     }
     
-    if (foundGem == true && returnedGem == false
+    if (foundGem == true && returnedGem == false // check if the correct item is seleced and use it
       && mouseX > 1160
       && mouseX < 1235
       && mouseY > 475
