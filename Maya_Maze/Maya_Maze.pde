@@ -13,10 +13,33 @@ PImage mouseHalo;
 
 //images for the left room puzzle
 PImage leftPuzzleBackground;
+PImage leftRoomRoots;
 PImage leftPuzzlePiece0;
 PImage leftPuzzlePiece1;
 PImage leftPuzzlePiece2;
 PImage leftPuzzlePiece3;
+
+//images for the right room puzzle
+PImage rightPuzzlePiece00;
+PImage rightPuzzlePiece01;
+PImage rightPuzzlePiece02;
+PImage rightPuzzlePiece03;
+
+PImage rightPuzzlePiece04;
+PImage rightPuzzlePiece05;
+PImage rightPuzzlePiece06;
+PImage rightPuzzlePiece07;
+
+PImage rightPuzzlePiece08;
+PImage rightPuzzlePiece09;
+PImage rightPuzzlePiece10;
+PImage rightPuzzlePiece11;
+
+PImage rightPuzzlePiece12;
+PImage rightPuzzlePiece13;
+PImage rightPuzzlePiece14;
+PImage rightPuzzlePiece15;
+
 
 String currentScene = "main_Scene";
 
@@ -39,6 +62,12 @@ boolean leftSolved = false;
 boolean middleSolved = false;
 boolean rightSolved = false;
 
+boolean topRightSolved = false;
+boolean topLeftSolved = false;
+boolean bottomRightSolved = false;
+boolean bottomLeftSolved = false;
+
+boolean rightPuzzleSolved = false;
 boolean leftPuzzleSolved = false;
 
 Main_Scene mainScene = new Main_Scene();
@@ -53,6 +82,11 @@ leftPuzzle leftPiece = new leftPuzzle();
 leftPuzzle middlePiece = new leftPuzzle();
 leftPuzzle rightPiece = new leftPuzzle();
 
+rightPuzzle trPiece = new rightPuzzle();
+rightPuzzle tlPiece = new rightPuzzle();
+rightPuzzle brPiece = new rightPuzzle();
+rightPuzzle blPiece = new rightPuzzle();
+
 GameObject Eye;
 GameObject Gem;
 
@@ -65,8 +99,8 @@ void setup()
   //lower resolution will make game unplayable.
 
   LoadImages();
-  Eye = new GameObject(eyeIcon, 1000, 900, "Eye", 30, 30);
-  Gem = new GameObject(gemIcon, 900, 400, "Gem", 30, 34);
+  Eye = new GameObject(eyeIcon, 800, 400, "Eye", 300, 300);
+  Gem = new GameObject(gemIcon, 937, 440, "Gem", 50, 50);
 }
 
 void draw()
@@ -135,17 +169,36 @@ void LoadImages()
   statueGem = loadImage("Statue_Gem.png");
   eyeIcon = loadImage("eye300x300.png");
   eyeIconSmall = loadImage("eye30x30.png");
-  gemIcon = loadImage("Gem_Placeholder.png");
+  gemIcon = loadImage("Gem300x300.png");
   doorOpens = loadImage("Door_Open.gif");
   //doorOpensAnim = loadImage("Door_Opens_Anim.png");
   mouseHalo = loadImage("halo.png");
   
   //images for left room puzzle
   leftPuzzleBackground = loadImage("Left_Puzzle.jpg");
+  leftRoomRoots = loadImage("Left_Room_Roots.png");
   leftPuzzlePiece0 = loadImage("piece0.png");
   leftPuzzlePiece1 = loadImage("piece1.png");
   leftPuzzlePiece2 = loadImage("piece2.png");
   leftPuzzlePiece3 = loadImage("piece3.png");
+  
+  // images for the right room puzzle
+  rightPuzzlePiece00 = loadImage("arrow0.png");
+  rightPuzzlePiece01 = loadImage("arrow1.png");
+  rightPuzzlePiece02 = loadImage("arrow2.png");
+  rightPuzzlePiece03 = loadImage("arrow3.png");
+  rightPuzzlePiece04 = loadImage("arrow4.png");
+  rightPuzzlePiece05 = loadImage("arrow5.png");
+  rightPuzzlePiece06 = loadImage("arrow6.png");
+  rightPuzzlePiece07 = loadImage("arrow7.png");
+  rightPuzzlePiece08 = loadImage("arrow8.png");
+  rightPuzzlePiece09 = loadImage("arrow9.png");
+  rightPuzzlePiece10 = loadImage("arrow10.png");
+  rightPuzzlePiece11 = loadImage("arrow11.png");
+  rightPuzzlePiece12 = loadImage("arrow12.png");
+  rightPuzzlePiece13 = loadImage("arrow13.png");
+  rightPuzzlePiece14 = loadImage("arrow14.png");
+  rightPuzzlePiece15 = loadImage("arrow15.png");
 }
 
 void QuitOnEscPress()

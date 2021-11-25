@@ -1,4 +1,4 @@
-class GameObject
+class GameObject //gameobject are items that are in the scenes and items are inside the inventory
 {
   PImage objectImage;
   int objectX;
@@ -24,19 +24,19 @@ class GameObject
   
   void onObjectClick()
   {
-    if(mouseX > (objectX-sizeX)
+    if(mouseX > objectX
       && mouseX < (objectX+sizeX)
-      && mouseY > (objectY-sizeY)
+      && mouseY > objectY
       && mouseY < (objectY+sizeY))
     {
       if (objectName == "Eye")
       {
-        Inventory.add(new Item(eyeIcon, itemX, itemY, objectName));
+        Inventory.add(new Item(eyeIcon, itemX, itemY, objectName, 100, 100));
         foundEye = true;
       }
       else if (objectName == "Gem")
       {
-        Inventory.add(new Item(gemIcon, itemX, itemY, objectName));
+        Inventory.add(new Item(gemIcon, itemX, itemY, objectName, 80, 80));
         foundGem = true;
       }
     }

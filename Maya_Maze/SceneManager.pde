@@ -47,6 +47,7 @@ void mouseClicked()
     break;
       
     case "right_Scene":
+    rightScene.mouseClicked();
       if (mouseX < 420 && mouseX < 1320 && mouseY < 960 && mouseY > 400)
       {
         currentScene = "main_Scene";
@@ -58,14 +59,16 @@ void mouseClicked()
       {
         currentScene = "main_Scene";
       }
-      else if (mouseX > 420 && mouseX < 620 && mouseY > 200 && mouseY < 300)
+      
+      if (mouseX > 320 && mouseX < 420 && mouseY > 250 && mouseY < 300)
       {
         currentScene = "left_Scene_Puzzle";
       }
     break;
     
     case "left_Scene_Puzzle":
-      if (mouseX > 1500 || (mouseY > 900 && mouseY < 960))
+      leftPuzzleScene.mouseClicked();
+      if ((mouseX > 1540 && mouseX < 1600) || (mouseY > 900 && mouseY < 960))
       {
         currentScene = "left_Scene";
       }
@@ -86,37 +89,18 @@ void mouseClicked()
   
   switch (currentScene) // handles item click detection
   {
-    case "left_Scene":
-      if (foundEye == false)
+    case "left_Scene_Puzzle":
+      if (foundEye == false && leftPuzzleSolved == true)
       {
         Eye.onObjectClick();
       }
-      
-      //if (mouseX > 1000 // eye clicked
-      //  && mouseX < 1020
-      //  && mouseY > 900
-      //  && mouseY < 920
-      //  && foundEye == false && Eye.itemClicked == true)
-      //{
-      //  foundEye = true;
-      //  Inventory.add(new Item(eyeIcon, itemX, itemY, "Eye"));
-      //}
     break;
     
     case "right_Scene":
-      if (foundGem == false)
+      if (foundGem == false && rightPuzzleSolved == true)
       {
         Gem.onObjectClick();
       }
-      //if (mouseX >= 1150 //gem clicked
-      //  && mouseX <= 1250
-      //  && mouseY >= 450
-      //  && mouseY <= 550
-      //  && foundGem == false)
-      //{
-      //  foundGem = true;
-      //  Inventory.add(new Item(gemIcon, itemX, itemY, "Gem"));
-      //}
     break;
   }
   

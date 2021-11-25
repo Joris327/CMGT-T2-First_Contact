@@ -4,12 +4,7 @@ class Left_Scene
   {
     image(leftRoom,320,0);
     
-    if (foundEye == false)
-    {
-      //rect(1175,275,100,100);
-      //image(eyeIconSmall,1000,900);
-      Eye.update();
-    }
+    
     
     // change mouse when hovering over something clickable
     push();
@@ -18,7 +13,7 @@ class Left_Scene
     {
       cursor(mouseHalo);
     }
-    else if (mouseX > 320 && mouseX < 420 && mouseY > 250 && mouseY < 300)
+    else if (mouseX > 320 && mouseX < 420 && mouseY > 250 && mouseY < 300) //puzzle
     {
       cursor(mouseHalo);
     }
