@@ -19,6 +19,9 @@ void SceneManager()
     case "final_Scene":
       finalScene.update();
       break;
+    case "main_Menu":
+      MainMenu.update();
+      break;
     default:
       mainScene.update();
       println("missing scene. did you make a typo?");
@@ -80,6 +83,12 @@ void mouseClicked()
         currentScene = "main_Scene";
       }
     break;
+    
+    case "main_Menu":
+      if (mouseX > 725 && mouseX < 1200 && mouseY > 550 && mouseY < 650)
+    {
+      currentScene = "main_Scene";
+    }
     
     default:
       currentScene = "main_Scene";

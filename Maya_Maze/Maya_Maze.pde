@@ -1,7 +1,13 @@
+import processing.sound.*;
+SoundFile mainMenuMusic;
+
 PImage mainRoom;
 PImage rightRoom;
 PImage leftRoom;
 PImage finalRoom;
+PImage mainMenu;
+PImage mainMenu2;
+
 PImage statueEye;
 PImage statueGem;
 PImage eyeIcon;
@@ -41,13 +47,16 @@ PImage rightPuzzlePiece14;
 PImage rightPuzzlePiece15;
 
 
-String currentScene = "main_Scene";
+String currentScene = "main_Menu";
 
 
 int itemX;
 int itemY = 1025;
 
 int itemSelected;
+
+boolean inMainMenu = true;
+boolean musicPlaying = false;
 
 boolean foundEye = false;
 boolean returnedEye = false;
@@ -74,6 +83,7 @@ Main_Scene mainScene = new Main_Scene();
 Right_Scene rightScene = new Right_Scene();
 Left_Scene leftScene = new Left_Scene();
 Final_Scene finalScene = new Final_Scene();
+Main_Menu MainMenu = new Main_Menu();
 //Door_Opens_Anim DoorOpensAnim = new Door_Opens_Anim(doorOpensAnim, 11, 1);
 
 Left_Puzzle leftPuzzleScene = new Left_Puzzle();
@@ -101,6 +111,8 @@ void setup()
   LoadImages();
   Eye = new GameObject(eyeIcon, 800, 400, "Eye", 300, 300);
   Gem = new GameObject(gemIcon, 937, 440, "Gem", 50, 50);
+  
+  mainMenuMusic = new SoundFile(this, "mainMenuMusic.wav");
 }
 
 void draw()
@@ -121,6 +133,15 @@ void draw()
   //  DoorOpensAnim.draw(320, 0);
   //}
       
+}
+
+void MusicManager()
+{
+  if (inMainMenu == true && musicPlaying == false)
+  {
+    mainMenuMusic.play();
+    musicPlaying = true;
+  }
 }
 
 void DrawInventory()
@@ -165,6 +186,9 @@ void LoadImages()
   rightRoom = loadImage("Right_Room.png");
   leftRoom = loadImage("Left_Room.jpg");
   finalRoom = loadImage("Final_Room.png");
+  mainMenu = loadImage("mainmenu1.png");
+  mainMenu2 = loadImage("mainmenu2.png");
+  
   statueEye = loadImage("Statue_Eye.png");
   statueGem = loadImage("Statue_Gem.png");
   eyeIcon = loadImage("eye300x300.png");
