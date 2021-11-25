@@ -11,11 +11,20 @@ PImage doorOpens;
 //PImage doorOpensAnim;
 PImage mouseHalo;
 
+//images for the left room puzzle
+PImage leftPuzzleBackground;
+PImage leftPuzzlePiece0;
+PImage leftPuzzlePiece1;
+PImage leftPuzzlePiece2;
+PImage leftPuzzlePiece3;
+
 String currentScene = "main_Scene";
 
 
 int itemX;
 int itemY = 1025;
+
+int itemSelected;
 
 boolean foundEye = false;
 boolean returnedEye = false;
@@ -25,13 +34,24 @@ boolean returnedGem = false;
 
 boolean doorUnlocked = false;
 
-int itemSelected;
+//booleans for left room puzzle
+boolean leftSolved = false;
+boolean middleSolved = false;
+boolean rightSolved = false;
+
+boolean leftPuzzleSolved = false;
 
 Main_Scene mainScene = new Main_Scene();
 Right_Scene rightScene = new Right_Scene();
 Left_Scene leftScene = new Left_Scene();
 Final_Scene finalScene = new Final_Scene();
 //Door_Opens_Anim DoorOpensAnim = new Door_Opens_Anim(doorOpensAnim, 11, 1);
+
+Left_Puzzle leftPuzzleScene = new Left_Puzzle();
+
+leftPuzzle leftPiece = new leftPuzzle();
+leftPuzzle middlePiece = new leftPuzzle();
+leftPuzzle rightPiece = new leftPuzzle();
 
 GameObject Eye;
 GameObject Gem;
@@ -46,7 +66,7 @@ void setup()
 
   LoadImages();
   Eye = new GameObject(eyeIcon, 1000, 900, "Eye", 30, 30);
-  Gem = new GameObject(gemIcon, 900, 400, "Gem", 43, 49);
+  Gem = new GameObject(gemIcon, 900, 400, "Gem", 30, 34);
 }
 
 void draw()
@@ -119,6 +139,13 @@ void LoadImages()
   doorOpens = loadImage("Door_Open.gif");
   //doorOpensAnim = loadImage("Door_Opens_Anim.png");
   mouseHalo = loadImage("halo.png");
+  
+  //images for left room puzzle
+  leftPuzzleBackground = loadImage("Left_Puzzle.jpg");
+  leftPuzzlePiece0 = loadImage("piece0.png");
+  leftPuzzlePiece1 = loadImage("piece1.png");
+  leftPuzzlePiece2 = loadImage("piece2.png");
+  leftPuzzlePiece3 = loadImage("piece3.png");
 }
 
 void QuitOnEscPress()

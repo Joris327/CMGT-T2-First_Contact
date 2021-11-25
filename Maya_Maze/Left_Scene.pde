@@ -18,6 +18,10 @@ class Left_Scene
     {
       cursor(mouseHalo);
     }
+    else if (mouseX > 320 && mouseX < 420 && mouseY > 250 && mouseY < 300)
+    {
+      cursor(mouseHalo);
+    }
     else
     {
       cursor(ARROW);

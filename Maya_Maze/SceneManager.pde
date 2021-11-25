@@ -13,6 +13,9 @@ void SceneManager()
     case "left_Scene": 
       leftScene.update();
       break;
+    case "left_Scene_Puzzle":
+      leftPuzzleScene.update();
+      break;
     case "final_Scene":
       finalScene.update();
       break;
@@ -54,6 +57,17 @@ void mouseClicked()
       if (mouseX > 1500 && mouseX < 1600 && mouseY < 960 && mouseY > 400)
       {
         currentScene = "main_Scene";
+      }
+      else if (mouseX > 420 && mouseX < 620 && mouseY > 200 && mouseY < 300)
+      {
+        currentScene = "left_Scene_Puzzle";
+      }
+    break;
+    
+    case "left_Scene_Puzzle":
+      if (mouseX > 1500 || (mouseY > 900 && mouseY < 960))
+      {
+        currentScene = "left_Scene";
       }
     break;
       
