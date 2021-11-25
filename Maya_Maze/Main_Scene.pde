@@ -26,70 +26,22 @@ class Main_Scene
       image(doorOpens,320,0);
       doorUnlocked = true;
     }
-    //rect(1160,375,75,75);
-  }
-  
-  void mouseClicked()
-  {
-    int deleteItem = -1;
     
-    if (foundEye == true && returnedEye == false
-      && mouseX > 1175
-      && mouseX < 1250
-      && mouseY > 275
-      && mouseY < 350)
+    /*
+    if (returnedEye == true)
     {
-      Item eyeItem = null;
-      
-      
-      for (int i = 0; i < Inventory.size(); ++i)
-      {
-        Item item = Inventory.get(i);
-        if (item.itemName().equals("Eye") && item.itemSelected == true)
-        {
-          returnedEye = true;
-          eyeItem = item;
-          deleteItem = i;
-        }
-      }
-      
-      if (eyeItem != null)
-      {
-        if (returnedEye == true && eyeItem.itemName().equals("Eye"))
-        {
-          Inventory.remove(deleteItem);
-          deleteItem = -1;
-        }
-      }
+      image(statueEye,320,0);
     }
     
-    if (foundGem == true && returnedGem == false
-      && mouseX > 1160
-      && mouseX < 1235
-      && mouseY > 475
-      && mouseY < 550)
+    if (returnedGem == true)
     {
-      Item gemItem = null;
-      
-      for (int i = 0; i < Inventory.size(); ++i)
-      {
-        Item item = Inventory.get(i);
-        if (item.itemName().equals("Gem") && item.itemSelected == true)
-        {
-          returnedGem = true;
-          gemItem = item;
-          deleteItem = i;
-        }
-      }
-      
-      if (gemItem != null)
-      {
-        if (returnedGem == true && gemItem.itemName().equals("Gem"))
-        {
-          Inventory.remove(deleteItem);
-          deleteItem = -1;
-        }
-      }
+      image(statueGem,320,0);
     }
+    
+    if (returnedEye == true && returnedGem == true)
+    {
+      image(doorOpens,320,0);
+    }
+    */
   }
 }
