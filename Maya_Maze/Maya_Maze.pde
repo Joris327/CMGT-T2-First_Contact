@@ -30,6 +30,7 @@ Right_Scene rightScene = new Right_Scene();
 Left_Scene leftScene = new Left_Scene();
 Left_Puzzle leftPuzzleScene = new Left_Puzzle();
 Final_Scene finalScene = new Final_Scene();
+Final_Puzzle finalPuzzleScene = new Final_Puzzle();
 //Door_Opens_Anim DoorOpensAnim = new Door_Opens_Anim(doorOpensAnim, 11, 1);
 
 ArrayList<Item> Inventory = new ArrayList();
@@ -51,6 +52,8 @@ void setup()
   tlPiece.clickCntr = 0;
   brPiece.clickCntr = 0;
   blPiece.clickCntr = 0;
+  
+  
 }
 
 void draw()
@@ -138,6 +141,14 @@ void LoadImages()
   rightPuzzlePiece13 = loadImage("arrow13.png");
   rightPuzzlePiece14 = loadImage("arrow14.png");
   rightPuzzlePiece15 = loadImage("arrow15.png");
+  skullPuzzle = loadImage("skull_puzzle.png");
+  skull1 = loadImage("puzzlepc1.png");
+  skull2 = loadImage("puzzlepc2.png");
+  skull3 = loadImage("puzzlepc3.png");
+  skull4 = loadImage("puzzlepc4.png");
+  skull5 = loadImage("puzzlepc5.png");
+  skull6 = loadImage("puzzlepc6.png");
+  
 
   //doorOpensAnim = loadImage("Door_Opens_Anim.png");
 }

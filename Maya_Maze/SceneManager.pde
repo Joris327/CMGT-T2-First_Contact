@@ -19,11 +19,23 @@ void SceneManager()
   case "final_Scene":
     finalScene.update();
     break;
+  case "final_Puzzle":
+    finalPuzzleScene.update();
+    break;
   default:
     mainScene.update();
     println("missing scene. did you make a typo?");
     break;
   }
+}
+
+void mouseReleased()
+{
+  if (currentScene == "final_Puzzle");
+  {
+    finalPuzzleScene.mouseReleased();
+  }
+  
 }
 
 void mouseClicked()
@@ -80,6 +92,18 @@ void mouseClicked()
     if (mouseY > 800 && mouseY < 960)
     {
       currentScene = "main_Scene";
+    }
+
+    if (mouseX > 800 && mouseX < 1200 && mouseY > 500 && mouseY < 750)
+    {
+      currentScene = "final_Puzzle";
+    }
+    break;
+
+  case "final_Puzzle":
+    if (mouseY > 800 && mouseY < 960)
+    {
+      currentScene = "final_Scene";
     }
     break;
 
