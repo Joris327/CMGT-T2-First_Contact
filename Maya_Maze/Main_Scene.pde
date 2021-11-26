@@ -18,8 +18,28 @@ class Main_Scene
     }
     else if (returnedEye == true && returnedGem == true)
     {
-      image(doorOpens,320,0);
+      doorOpening.play();
+      image(doorOpening,320,0);
+      
+      if (timeSet == false)
+      {
+        time = millis();
+        timeSet = true;
+      }
+      
       doorUnlocked = true;
+      //mainRoomDoorOpens.setGain(10); //unfortunately this sound is very soft, 
+      mainRoomDoorOpens.play();        //using setgain makes it louder but also introduces some sort of audio glitch so it cant be used.
+    }
+    else if (loopAnimation == true && doorUnlocked == true)
+    {
+      doorOpen.loop();
+      image(doorOpen,320,0);
+    }
+    
+    if (time + 6000 >= time)
+    {
+      loopAnimation = true;
     }
     
     // change mouse when hovering over something clickable

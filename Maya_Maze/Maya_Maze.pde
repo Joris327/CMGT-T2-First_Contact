@@ -1,8 +1,20 @@
-import processing.sound.*;
-SoundFile mainMenuMusic;
+import ddf.minim.*;
+import processing.video.*;
+
+Minim minim;
+AudioPlayer mainMenuMusic;
+AudioPlayer mainThemeMusic;
+AudioPlayer walking;
+AudioPlayer mainRoomDoorOpens;
+AudioPlayer finalRoomDoorOpens;
+
+Movie Finish;
+Movie doorOpening;
+Movie doorOpen;
 
 PImage mainRoom;
-PImage rightRoom;
+PImage rightRoomUnsolved;
+PImage rightRoomSolved;
 PImage leftRoom;
 PImage finalRoom;
 PImage mainMenu;
@@ -14,7 +26,6 @@ PImage eyeIcon;
 PImage eyeIconSmall;
 PImage gemIcon;
 PImage doorOpens;
-//PImage doorOpensAnim;
 PImage mouseHalo;
 
 //images for the left room puzzle
@@ -55,6 +66,10 @@ int itemY = 1025;
 
 int itemSelected;
 
+int time = 100000000;
+boolean timeSet = false;
+boolean loopAnimation = false;
+
 boolean inMainMenu = true;
 boolean musicPlaying = false;
 
@@ -84,7 +99,6 @@ Right_Scene rightScene = new Right_Scene();
 Left_Scene leftScene = new Left_Scene();
 Final_Scene finalScene = new Final_Scene();
 Main_Menu MainMenu = new Main_Menu();
-//Door_Opens_Anim DoorOpensAnim = new Door_Opens_Anim(doorOpensAnim, 11, 1);
 
 Left_Puzzle leftPuzzleScene = new Left_Puzzle();
 
@@ -110,9 +124,20 @@ void setup()
 
   LoadImages();
   Eye = new GameObject(eyeIcon, 800, 400, "Eye", 300, 300);
-  Gem = new GameObject(gemIcon, 937, 440, "Gem", 50, 50);
+  Gem = new GameObject(gemIcon, 935, 405, "Gem", 50, 50);
   
-  mainMenuMusic = new SoundFile(this, "mainMenuMusic.wav");
+  minim = new Minim(this);
+  mainMenuMusic = minim.loadFile("mainMenuMusic.wav");
+  mainThemeMusic = minim.loadFile("jungle main theme.wav");
+  walking = minim.loadFile("walking.wav");
+  mainRoomDoorOpens = minim.loadFile("mainroom door opens.wav");
+  finalRoomDoorOpens = minim.loadFile("finalroom door.wav");
+  
+  Finish = new Movie(this, "endAnimation.mov");
+  doorOpening = new Movie(this, "door_opens.mov");
+  doorOpen = new Movie(this, "door_opens2.mov");
+  
+  mainMenuMusic.play();
 }
 
 void draw()
@@ -133,13 +158,15 @@ void draw()
   //  DoorOpensAnim.draw(320, 0);
   //}
       
+  MusicManager();
 }
 
 void MusicManager()
 {
-  if (inMainMenu == true && musicPlaying == false)
+  if (inMainMenu == false && musicPlaying == false)
   {
-    mainMenuMusic.play();
+    mainMenuMusic.pause();
+    mainThemeMusic.loop();
     musicPlaying = true;
   }
 }
@@ -183,7 +210,8 @@ Item itemName (String name)
 void LoadImages()
 {
   mainRoom = loadImage("Main_Room.png");
-  rightRoom = loadImage("Right_Room.png");
+  rightRoomUnsolved = loadImage("Right_Room_Unsolved.png");
+  rightRoomSolved = loadImage("Right_Room_Solved.png");
   leftRoom = loadImage("Left_Room.jpg");
   finalRoom = loadImage("Final_Room.png");
   mainMenu = loadImage("mainmenu1.png");
@@ -207,22 +235,22 @@ void LoadImages()
   leftPuzzlePiece3 = loadImage("piece3.png");
   
   // images for the right room puzzle
-  rightPuzzlePiece00 = loadImage("arrow0.png");
-  rightPuzzlePiece01 = loadImage("arrow1.png");
-  rightPuzzlePiece02 = loadImage("arrow2.png");
-  rightPuzzlePiece03 = loadImage("arrow3.png");
-  rightPuzzlePiece04 = loadImage("arrow4.png");
-  rightPuzzlePiece05 = loadImage("arrow5.png");
-  rightPuzzlePiece06 = loadImage("arrow6.png");
-  rightPuzzlePiece07 = loadImage("arrow7.png");
-  rightPuzzlePiece08 = loadImage("arrow8.png");
-  rightPuzzlePiece09 = loadImage("arrow9.png");
-  rightPuzzlePiece10 = loadImage("arrow10.png");
-  rightPuzzlePiece11 = loadImage("arrow11.png");
-  rightPuzzlePiece12 = loadImage("arrow12.png");
-  rightPuzzlePiece13 = loadImage("arrow13.png");
-  rightPuzzlePiece14 = loadImage("arrow14.png");
-  rightPuzzlePiece15 = loadImage("arrow15.png");
+  rightPuzzlePiece00 = loadImage("TL-0.png");
+  rightPuzzlePiece01 = loadImage("TL-1.png");
+  rightPuzzlePiece02 = loadImage("TL-2.png");
+  rightPuzzlePiece03 = loadImage("TL-3.png");
+  rightPuzzlePiece04 = loadImage("TR-0.png");
+  rightPuzzlePiece05 = loadImage("TR-1.png");
+  rightPuzzlePiece06 = loadImage("TR-2.png");
+  rightPuzzlePiece07 = loadImage("TR-3.png");
+  rightPuzzlePiece08 = loadImage("BL-0.png");
+  rightPuzzlePiece09 = loadImage("BL-1.png");
+  rightPuzzlePiece10 = loadImage("BL-2.png");
+  rightPuzzlePiece11 = loadImage("BL-3.png");
+  rightPuzzlePiece12 = loadImage("BR-0.png");
+  rightPuzzlePiece13 = loadImage("BR-1.png");
+  rightPuzzlePiece14 = loadImage("BR-2.png");
+  rightPuzzlePiece15 = loadImage("BR-3.png");
 }
 
 void QuitOnEscPress()
@@ -252,4 +280,9 @@ void keyReleased() // cheat to get to the final room quickly by pressing r and t
   {
     returnedGem = false;
   }
+}
+
+void movieEvent(Movie movie)
+{
+  movie.read();
 }

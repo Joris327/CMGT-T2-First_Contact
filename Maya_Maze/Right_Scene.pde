@@ -2,9 +2,17 @@ class Right_Scene
 {
   void update()
   {
-    image(rightRoom,320,0);
+    if (rightPuzzleSolved == false)//which background to display
+    {
+      image(rightRoomUnsolved,320,0);
+    }
+    else
+    {
+      image(rightRoomSolved,320,0);
+    }
     
-    if (foundGem == false && rightPuzzleSolved == true)
+    
+    if (foundGem == false && rightPuzzleSolved == true)//updates the gem item
     {
       //image(statueGem,320,0);
       Gem.update();
@@ -29,59 +37,59 @@ class Right_Scene
 
     //change the image with each counter value increase
     if (trPiece.clickCntr == 0) {
-      image(rightPuzzlePiece00, 750, 250);
+      image(rightPuzzlePiece00, 785, 245);
     }
     if (trPiece.clickCntr == 1) {
-      image(rightPuzzlePiece01, 750, 250);
+      image(rightPuzzlePiece01, 785, 245);
     }
     if (trPiece.clickCntr == 2) {
-      image(rightPuzzlePiece02, 750, 250);
+      image(rightPuzzlePiece02, 785, 245);
     }
     if (trPiece.clickCntr == 3) {
-      image(rightPuzzlePiece03, 750, 250);
+      image(rightPuzzlePiece03, 785, 245);
     }
 
     if (tlPiece.clickCntr == 0) {
-      image(rightPuzzlePiece04, 1025, 250);
+      image(rightPuzzlePiece04, 1010, 245);
     }
     if (tlPiece.clickCntr == 1) {
-      image(rightPuzzlePiece05, 1025, 250);
+      image(rightPuzzlePiece05, 1010, 245);
     }
     if (tlPiece.clickCntr == 2) {
-      image(rightPuzzlePiece06, 1025, 250);
+      image(rightPuzzlePiece06, 1010, 245);
     }
     if (tlPiece.clickCntr == 3) {
-      image(rightPuzzlePiece07, 1025, 250);
+      image(rightPuzzlePiece07, 1010, 245);
     }
 
     if (brPiece.clickCntr == 0) {
-      image(rightPuzzlePiece08, 750, 450);
+      image(rightPuzzlePiece08, 805, 505);
     }
     if (brPiece.clickCntr == 1) {
-      image(rightPuzzlePiece09, 750, 450);
+      image(rightPuzzlePiece09, 805, 505);
     }
     if (brPiece.clickCntr == 2) {
-      image(rightPuzzlePiece10, 750, 450);
+      image(rightPuzzlePiece10, 805, 505);
     }
     if (brPiece.clickCntr == 3) {
-      image(rightPuzzlePiece11, 750, 450);
+      image(rightPuzzlePiece11, 805, 505);
     }
 
     if (blPiece.clickCntr == 0) {
-      image(rightPuzzlePiece12, 1025, 450);
+      image(rightPuzzlePiece12, 1000, 505);
     }
     if (blPiece.clickCntr == 1) {
-      image(rightPuzzlePiece13, 1025, 450);
+      image(rightPuzzlePiece13, 1000, 505);
     }
     if (blPiece.clickCntr == 2) {
-      image(rightPuzzlePiece14, 1025, 450);
+      image(rightPuzzlePiece14, 1000, 505);
     }
     if (blPiece.clickCntr == 3) {
-      image(rightPuzzlePiece15, 1025, 450);
+      image(rightPuzzlePiece15, 1000, 505);
     }
 
     //win condition for the puzzle
-    if (trPiece.clickCntr == 1) {
+    if (trPiece.clickCntr == 0) {
       topRightSolved = true;
       //println("Top Right Solved");
     }
@@ -89,7 +97,7 @@ class Right_Scene
       topRightSolved = false;
     }
     
-    if (tlPiece.clickCntr == 1) {
+    if (tlPiece.clickCntr == 0) {
       topLeftSolved = true;
       //println("Top Left Solved");
     }
@@ -97,7 +105,7 @@ class Right_Scene
       topLeftSolved = false;
     }
     
-    if (brPiece.clickCntr == 1) {
+    if (brPiece.clickCntr == 0) {
       bottomRightSolved = true;
       //println("Bottom Right Solved");
     }
@@ -105,7 +113,7 @@ class Right_Scene
       bottomRightSolved = false;
     }
     
-    if (blPiece.clickCntr == 1) {
+    if (blPiece.clickCntr == 0) {
       bottomLeftSolved = true;
       //println("Bottom Left Solved");
     }
@@ -122,7 +130,7 @@ class Right_Scene
       rightPuzzleSolved = false;
     }
     
-    push();
+    push(); //mouse hover detection for the mouse halo.
     imageMode(CENTER);
     if (mouseX < 420 && mouseX > 320 && mouseY < 960 && mouseY > 400) //left door
     {
@@ -136,16 +144,16 @@ class Right_Scene
     {
       cursor(mouseHalo);
     }
-    else if (mouseX>750 && mouseX<900 && mouseY>250 && mouseY<400) {
+    else if (mouseX>785 && mouseX<895 && mouseY>245 && mouseY<360) {
       cursor(mouseHalo);
     }
-    else if (mouseX>1025 && mouseX<1175 && mouseY>250 && mouseY<400) {
+    else if (mouseX>1010 && mouseX<1120 && mouseY>245 && mouseY<360) {
       cursor(mouseHalo);
     }
-    else if (mouseX>750 && mouseX<900 && mouseY>450 && mouseY<600) {
+    else if (mouseX>795 && mouseX<905 && mouseY>505 && mouseY<615) {
       cursor(mouseHalo);
     }
-    else if (mouseX>1025 && mouseX<1175 && mouseY>450 && mouseY<600) {
+    else if (mouseX>1010 && mouseX<1120 && mouseY>505 && mouseY<615) {
       cursor(mouseHalo);
     }
     else
@@ -177,5 +185,5 @@ class Right_Scene
 
 class rightPuzzle {
   //click counter value
-  int clickCntr;
+  int clickCntr = (int)random(1,4);
 }

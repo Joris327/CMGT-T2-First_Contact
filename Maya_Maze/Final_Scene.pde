@@ -2,7 +2,17 @@ class Final_Scene
 {
   void update()
   {
-    image(finalRoom,320,0);
+    if (key == 'f')
+    {
+      Finish.play();
+      image(Finish,320,0);
+      finalRoomDoorOpens.play();
+    }
+    else
+    {
+      image(finalRoom,320,0);
+    }
+    
     
   push();
   imageMode(CENTER);
